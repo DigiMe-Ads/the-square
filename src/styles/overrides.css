@@ -1,0 +1,302 @@
+/* ------------------------------------------------------------------ *
+ * overrides.css
+ * Styles that lived INLINE inside the original HTML files (per-page
+ * <style> blocks) plus a small bridge so Swiper slides inherit the look
+ * the old jQuery "slick" slider had in style.css.
+ * ------------------------------------------------------------------ */
+
+/* ---------- Swiper bridge (mirrors the old .slick-* rules) ---------- */
+.autoplay.swiper,
+.main_slider.swiper {
+  width: 100%;
+  height: 100%;
+}
+.space-dropdown-menu-right {
+  height: 600px;
+}
+.space-page-dropdown-menu-right {
+  height: 80vh;
+}
+.autoplay .swiper-slide {
+  height: auto;
+  display: flex;
+}
+.autoplay .swiper-slide > .hover-div,
+.autoplay .swiper-slide > .slide-image-spaces {
+  width: 100%;
+  height: 100%;
+}
+.autoplay .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 15% 2%;
+}
+.main_slider .swiper-slide {
+  position: relative;
+}
+
+@media (max-width: 767px) {
+  .space-dropdown-menu-right {
+    height: 460px;
+  }
+}
+
+/* ---------- Blog listing page (was inline in blog.html) ---------- */
+.blog-container {
+  padding: 100px 50px;
+  display: flex;
+  justify-content: center;
+}
+.blog-site-inner {
+  max-width: 1600px;
+  width: 100%;
+  height: 100%;
+}
+.blog-container-img-inner {
+  display: flex;
+  justify-content: center;
+}
+.blog-container-description {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0px;
+}
+.blog-container-description p {
+  text-align: center;
+  max-width: 1400px;
+}
+.blog-items-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+.blog-items-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.blog-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+}
+.blog-item {
+  flex: 1 1 calc(25.333% - 20px);
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  max-width: 370px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.blog-item-img {
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  padding-top: 80%;
+  position: relative;
+}
+.blog-item-img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.blog-item-details {
+  padding: 25px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 200px;
+}
+.blog-item-title h4 {
+  margin: 0 0 15px 0;
+  font-size: 18px;
+  line-height: 25px;
+  font-family: 'Raleway', sans-serif;
+}
+.blog-item-text p {
+  margin: 0 0 15px 0 !important;
+  font-size: 16px;
+  line-height: 25px;
+  font-family: 'Raleway', sans-serif;
+}
+.blog-item-link a {
+  color: #bc9b35;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: 'Raleway', sans-serif;
+}
+@media (max-width: 900px) {
+  .blog-item {
+    flex: 1 1 calc(50% - 20px);
+  }
+}
+@media (max-width: 600px) {
+  .blog-item {
+    flex: 1 1 100%;
+  }
+  .blog-container {
+    padding: 60px 20px;
+  }
+}
+
+/* ---------- Blog post (single) ---------- */
+.blog-content h2 {
+  margin-bottom: 20px;
+}
+.blog-content p {
+  margin: 0 0 18px 0;
+  line-height: 1.7;
+  font-family: 'Raleway', sans-serif;
+}
+
+/* ---------- Spaces index page (was inline in spaces.html) ---------- */
+.spaces_wrapper_page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Raleway', Arial, sans-serif;
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+.spaces_wrapper_page .container {
+  text-align: center;
+  max-width: 1200px;
+  width: 100%;
+  padding: 20px;
+}
+.spaces_wrapper_page .title-text {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+.spaces_wrapper_page .sub-heading {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+.spaces_wrapper_page .description {
+  font-size: 1em;
+  margin-bottom: 80px;
+}
+.spaces_wrapper_page .image-row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.spaces_wrapper_page .image-row img {
+  max-width: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+@media (max-width: 575.98px) {
+  .spaces_wrapper_page .image-row img {
+    max-width: 160px;
+  }
+  .spaces_wrapper_page .image-row {
+    justify-content: center;
+  }
+  .spaces_wrapper_page {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+}
+
+/* ---------- FAQ page (was inline in faqs.html) ---------- */
+.faq-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px;
+}
+.faq-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+.faq-item h3 {
+  color: #000;
+  border-radius: 5px;
+  padding: 20px 0px;
+}
+.faq-item p {
+  margin: 10px 0;
+  color: #555;
+  line-height: 1.7;
+}
+.faq-item ul {
+  margin: 10px 0;
+  padding: 0 20px;
+}
+.faq-item ul li {
+  margin: 5px 0;
+  color: #555;
+}
+@media (max-width: 600px) {
+  .faq-container {
+    padding: 40px 15px;
+  }
+  .faq-item h3 {
+    font-size: 18px;
+  }
+  .faq-item p,
+  .faq-item ul li {
+    font-size: 14px;
+  }
+}
+
+/* ---------- Coming Soon spaces (was inline in nidahas/sono/...) ---------- */
+.background {
+  background: url('/img/banner.png') no-repeat center center / cover;
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+.background .content {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 60px 20px;
+  width: 100%;
+  display: flex;
+  min-height: 80vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.background .content img {
+  width: 100%;
+  max-width: 120px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+}
+.background .content h1 {
+  font-size: 2.5em;
+  margin: 20px 0;
+}
+.background .content p {
+  font-size: 1.2em;
+  margin: 20px 0;
+  max-width: 800px;
+}
+.background .content button {
+  padding: 10px 20px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #bc9b35;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+.background .content button:hover {
+  background-color: #ecc243;
+}
