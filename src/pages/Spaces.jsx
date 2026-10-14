@@ -7,7 +7,7 @@ export default function Spaces() {
   return (
     <Layout footerBg>
       <PageBanner
-        title="OUR SPACES"
+        title="EXPLORE THE SPACES"
         crumbs={[
           { label: 'Home', to: '/' },
           { label: 'Spaces', to: '/spaces' },
@@ -16,12 +16,11 @@ export default function Spaces() {
 
       <div className="spaces_wrapper_page">
         <div className="container">
-          <div className="title-text">Our Spaces</div>
-          <div className="sub-heading">SUB HEADING IN HERE - ABOUT THE SQUARE</div>
+          <div className="title-text">Explore The Spaces</div>
+          <div className="sub-heading">FOUR SPACES. MANY WAYS TO EXPERIENCE THE SQUARE.</div>
           <div className="description">
-            Explore The Square's diverse spaces, each offering a unique experience. Sample global
-            cuisines, engage in cultural happenings, or simply unwind. Here, history and modernity
-            converge, creating a dynamic urban retreat in the heart of Colombo.
+            From authentic Thai cuisine to relaxed social moments, explore the individual
+            destinations that make The Square unique.
           </div>
           <div className="image-row">
             {spaces.map((space) => (

@@ -6,14 +6,11 @@ import Blog from './pages/Blog'
 import BlogPost from './pages/BlogPost'
 import Events from './pages/Events'
 import Faqs from './pages/Faqs'
-import MaysTable from './pages/MaysTable'
-import SpaceComingSoon from './pages/SpaceComingSoon'
+import Contact from './pages/Contact'
+import SpaceDetail from './pages/SpaceDetail'
 import { spaces } from './data/spaces'
 
 export default function App() {
-  // Spaces that aren't open yet share the Coming Soon template, one route each.
-  const comingSoonSpaces = spaces.filter((s) => s.status === 'coming-soon')
-
   return (
     <Routes>
       <Route path="/" element={<Home />} />
@@ -23,17 +20,11 @@ export default function App() {
       <Route path="/blog/:slug" element={<BlogPost />} />
       <Route path="/events" element={<Events />} />
       <Route path="/faqs" element={<Faqs />} />
+      <Route path="/contact" element={<Contact />} />
 
-      {/* Open space */}
-      <Route path="/mays-table" element={<MaysTable />} />
-
-      {/* Coming-soon spaces */}
-      {comingSoonSpaces.map((space) => (
-        <Route
-          key={space.slug}
-          path={`/${space.slug}`}
-          element={<SpaceComingSoon space={space} />}
-        />
+      {/* One detail page per space */}
+      {spaces.map((space) => (
+        <Route key={space.slug} path={`/${space.slug}`} element={<SpaceDetail space={space} />} />
       ))}
 
       {/* Fallback */}

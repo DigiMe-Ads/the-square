@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom'
 import { blogPosts } from '../../data/blogPosts'
+import { blogCategories } from '../../data/content'
+import FeatureGrid from '../common/FeatureGrid'
 
-// "Our Blog & News" feature block on the home page. Pulls the two most recent
+// "Stay in The Square" feature block on the home page. Pulls the two most recent
 // posts from the blog data so it stays in sync with the Blog page.
 export default function BlogNewsSection() {
   const [first, second] = blogPosts
@@ -12,17 +14,18 @@ export default function BlogNewsSection() {
         <div className="festival-inner">
           <div className="festival-top">
             <div className="festival-banner-header">
-              <h1 className="cmn-header">Our Blog &amp; News</h1>
+              <h1 className="cmn-header">Stay In The Square</h1>
             </div>
             <div className="festival-banner-text">
               <p className="cmn-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit repellat, maxime
-                deleniti ad aspernatur quasi voluptates, quia placeat consectetur nemo nesciunt ipsa
+                Go beyond the table and discover the people, flavours, cultures and experiences that
+                make The Square what it is.
               </p>
             </div>
+            <FeatureGrid items={blogCategories} />
             <div className="festival-banner-link">
               <Link to="/blog" className="cmn-link">
-                Explore
+                Read The Blog
               </Link>
             </div>
           </div>

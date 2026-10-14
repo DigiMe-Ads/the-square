@@ -1,5 +1,9 @@
-// The five spaces at The Square. `status: 'open'` renders a full detail page;
-// 'coming-soon' renders the shared Coming Soon template.
+// The four spaces at The Square. Every space renders through the shared
+// SpaceDetail page; optional fields (email, menuUrl, gallery…) are simply
+// skipped when missing.
+import { maysGallery } from './gallery'
+
+const LOCATION_GF = 'Ground Floor, Arcade Clock Tower Building, Independence Square, Colombo 07'
 
 export const spaces = [
   {
@@ -7,57 +11,99 @@ export const spaces = [
     name: "MAY's TABLE",
     thumb: '/img/mays.jpg',
     slide: '/img/slide1.png',
+    image: '/img/table.png',
     number: '01',
-    status: 'open',
+    // Home "Explore The Square" card
+    tagline: "Authentic Thai. Distinctively MAY's.",
+    summary:
+      'Experience the vibrant flavours of Thailand through authentic dishes, traditional techniques and carefully selected ingredients.',
+    cta: "Explore MAY's Table",
+    // Detail page
+    heading: 'AUTHENTIC THAI. AT THE HEART OF COLOMBO.',
+    body: [
+      "At MAY's Table, Thai cuisine is celebrated in its most authentic form.",
+      "Inspired by Thailand's rich culinary heritage, the menu brings together bold flavours, aromatic herbs, traditional techniques and carefully selected ingredients.",
+      'From comforting classics to vibrant street-food favourites, every dish is created to capture the balance of sweet, sour, salty, spicy and umami that defines Thai cuisine.',
+      "Whether you're joining us for lunch, dinner, a casual gathering or a special occasion, MAY's Table invites you to experience the depth and diversity of Thai food.",
+    ],
+    hours: ['Monday – Sunday', '11:30 AM – 11:00 PM'],
+    phone: '+94 77 233 0707',
+    email: 'mays@colomboseven.com',
+    menuUrl: 'https://www.mayspattaya.com/mays-table',
+    reservable: true,
+    gallery: maysGallery,
   },
   {
     slug: 'nidahas',
-    name: 'Nidahasa',
+    name: 'NIDAHAS',
     thumb: '/img/nidahas.jpg',
     slide: '/img/slide2.png',
+    image: '/img/slide2.png',
     number: '02',
-    status: 'coming-soon',
+    tagline: 'A space rooted in Sri Lankan spirit.',
+    summary: 'Discover a new expression of local culture, flavour and contemporary hospitality.',
+    note: 'Opening details to be confirmed.',
+    cta: 'Discover Nidahas',
+    heading: 'WHERE COLOMBO COMES TOGETHER AFTER DARK.',
+    body: [
+      'NIDAHAS is a distinctive bar and social destination at The Square, created for good drinks, great conversations and memorable evenings.',
+      'With its relaxed atmosphere and vibrant social character, NIDAHAS offers a place to unwind, meet friends and enjoy the night at your own pace.',
+      "Whether you're dropping in for an after-work drink, catching up with friends or settling in for an evening out, NIDAHAS brings a different energy to The Square.",
+      'Come for the drinks. Stay for the atmosphere. Make it a night to remember.',
+    ],
+    // Hours and email are pending client confirmation.
+    hours: ['Opening details to be confirmed.'],
+    phone: '+94 76 671 2348',
+    location: LOCATION_GF,
+    contactCta: 'Contact Nidahas',
   },
   {
-    slug: 'sono',
-    name: 'Sono',
-    thumb: '/img/sono.jpg',
+    slug: 'summer-colombo',
+    name: 'SUMMER COLOMBO',
+    // Placeholder imagery until Summer Colombo brand assets are supplied.
+    thumb: '/img/slide3.png',
     slide: '/img/slide3.png',
+    image: '/img/slide3.png',
     number: '03',
-    status: 'coming-soon',
+    tagline: 'A Contemporary Dining Experience',
+    summary:
+      'A vibrant destination for good food, relaxed moments and memorable gatherings in the heart of Colombo.',
+    cta: 'Explore Summer',
+    heading: 'THE TASTE OF SUMMER, ALL YEAR ROUND.',
+    body: [
+      'Summer Colombo brings a fresh, contemporary dining experience to the heart of Colombo 07.',
+      'Inspired by the relaxed elegance of a modern Parisian brasserie, the space brings together all-day dining, brunch favourites, artisanal coffee, handcrafted desserts and contemporary comfort food.',
+      'From breakfast and leisurely brunches to business lunches, coffee catch-ups and relaxed dinners, Summer Colombo is designed to make every visit feel effortless.',
+      'With stylish surroundings, thoughtfully prepared food and a warm, welcoming atmosphere, it is a place to meet, unwind and enjoy the moment — whatever the time of day.',
+    ],
+    hours: ['Monday – Sunday', '8:00 AM – 10:00 PM'],
+    phone: '+94 77 134 0608',
+    location: LOCATION_GF,
+    reservable: true,
   },
   {
-    slug: 'suisse-del',
-    name: 'Suisse Deli',
-    thumb: '/img/deli.jpg',
+    slug: 'barista',
+    name: 'BARISTA',
+    // Placeholder imagery until Barista brand assets are supplied.
+    thumb: '/img/slide4.png',
     slide: '/img/slide4.png',
+    image: '/img/slide4.png',
     number: '04',
-    status: 'coming-soon',
+    tagline: 'Coffee & Café',
+    summary:
+      'Your everyday coffee destination at Independence Square — from expertly brewed coffee to relaxed catch-ups and easy moments.',
+    cta: 'Explore Barista',
+    heading: 'YOUR COFFEE. YOUR MOMENT.',
+    body: [
+      'Barista brings its signature café experience to the heart of Independence Square.',
+      "Whether you're starting your morning, taking a break from the day or meeting someone over coffee, Barista offers a welcoming space to enjoy your favourite brews and everyday café moments.",
+      'Set within the heritage surroundings of Arcade Independence Square, this Barista location combines the character of its historic setting with the familiar modern café experience the brand is known for.',
+    ],
+    hours: ['Monday – Sunday', '7:00 AM – 10:00 PM'],
+    phone: '+94 11 351 8966',
+    location: 'No. CT/GF/3A, Arcade – Independence Square, Colombo 07',
+    contactCta: 'Visit Barista',
   },
-  {
-    slug: 'event-space',
-    name: 'Event Space',
-    thumb: '/img/space.jpg',
-    slide: '/img/slide5.png',
-    number: '05',
-    status: 'coming-soon',
-  },
-]
-
-// Homepage "Our Spaces" slider order (as it appears in the original index.html).
-export const homeSpaceSlides = [
-  { number: '01', text: "May's-Table", img: '/img/slide1.png', to: '/mays-table' },
-  { number: '02', text: 'Nidahasa', img: '/img/slide2.png', to: '/nidahas' },
-  { number: '03', text: 'Sono', img: '/img/slide3.png', to: '/sono' },
-  { number: '04', text: 'Suisse Deli', img: '/img/slide4.png', to: '/suisse-del' },
-  { number: '05', text: 'Event space', img: '/img/slide5.png', to: '/event-space' },
-]
-
-// Generic showcase slides reused on space detail pages.
-export const showcaseSlides = [
-  { number: '01', text: 'Boutique Hall', img: '/img/slide1.png' },
-  { number: '02', text: 'Cafeteria', img: '/img/slide2.png' },
-  { number: '03', text: 'Cafe Shop', img: '/img/slide3.png' },
 ]
 
 export const getSpace = (slug) => spaces.find((s) => s.slug === slug)

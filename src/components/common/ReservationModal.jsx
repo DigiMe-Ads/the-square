@@ -49,8 +49,8 @@ export default function ReservationModal() {
           </div>
           <div className="reservation-description">
             <p>
-              ea neque cupiditate autem ab exercitationem voluptatem molestias! Lorem ipsum dolor
-              sit amet consectetur adipisicing elit. Fugit repellat,
+              Reserve a table or tell us what you're planning, and we'll help you find the right
+              space for your occasion.
             </p>
           </div>
           <form onSubmit={onSubmit}>

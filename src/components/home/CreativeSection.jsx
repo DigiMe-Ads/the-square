@@ -1,4 +1,6 @@
-// "Where History Meets Modern Indulgence" intro block on the home page.
+import { Link } from 'react-router-dom'
+
+// "More Than A Place To Visit" intro block on the home page.
 export default function CreativeSection() {
   return (
     <div className="creative-wrapper">
@@ -9,22 +11,28 @@ export default function CreativeSection() {
         <div className="creative-inner">
           <div className="creative-banner-details">
             <div className="creative-banner-header">
-              <h1 className="cmn-header">Creating Heading in Here</h1>
+              <h1 className="cmn-header">More Than A Place To Visit</h1>
             </div>
             <div className="creative-banner-sub">
-              <h2 className="cmn-sub-title">Where History Meets Modern Indulgence</h2>
+              <h2 className="cmn-sub-title">A SPACE TO EXPERIENCE.</h2>
             </div>
             <div className="creative-banner-description">
               <p className="cmn-text">
-                Steeped in colonial heritage, The Square stands as a testament to Sri Lanka's rich
-                past. Originally conceived as the city's Asylum in 1875, this architectural gem later
-                housed government offices, bearing witness to the nation's evolution. Today, this
-                monumental building has been transformed into a vibrant hub of culinary delights and
-                social gatherings. We invite you to step through our historic doors and become part
-                of The Square's next chapter.
+                The Square brings together food, culture, people and experiences in one of
+                Colombo's most distinctive settings.
+              </p>
+              <p className="cmn-text" style={{ marginTop: 20 }}>
+                Set within the historic Arcade Clock Tower Building at Independence Square, The
+                Square offers a collection of spaces designed for different moments — from relaxed
+                meals and coffee breaks to celebrations, conversations and evenings worth
+                remembering.
               </p>
             </div>
-            <div className="creative-link"></div>
+            <div className="creative-link" style={{ marginTop: 30 }}>
+              <Link to="/about" className="cmn-link">
+                Discover The Story
+              </Link>
+            </div>
             <div className="creative-img">
               <img src="/img/squre.png" alt="The Square" />
             </div>

@@ -6,22 +6,23 @@ import Gallery from '../components/spaces/Gallery'
 import ShowcaseSlider from '../components/spaces/ShowcaseSlider'
 import ContactSection from '../components/common/ContactSection'
 
-export default function MaysTable() {
+// Detail page shared by every space; content comes from data/spaces.js.
+export default function SpaceDetail({ space }) {
   return (
     <Layout>
       <PageBanner
-        title="MAY's TABLE"
+        title={space.name}
         crumbs={[
           { label: 'Home', to: '/' },
-          { label: 'spaces', to: '/spaces' },
-          { label: "May's Table", to: '/mays-table' },
+          { label: 'Spaces', to: '/spaces' },
+          { label: space.name, to: `/${space.slug}` },
         ]}
       />
-      <SpaceIntro />
-      <OpeningHours />
-      <Gallery />
-      <ShowcaseSlider />
-      <ContactSection header="Creating Heading in Here" sub="SUB HEADING IN HERE - OUR EVENTS" />
+      <SpaceIntro space={space} />
+      <OpeningHours space={space} />
+      {space.gallery && <Gallery images={space.gallery} />}
+      <ShowcaseSlider currentSlug={space.slug} />
+      <ContactSection />
     </Layout>
   )
 }

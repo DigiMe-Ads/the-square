@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { footerLinks } from '../../data/navigation'
+import { footerLinks, footerSpaceLinks } from '../../data/navigation'
 import { site } from '../../data/site'
 
 // `showBg` renders the decorative background image used on inner pages.
@@ -36,13 +36,17 @@ export default function Footer({ showBg = false }) {
                   <img src="/img/logo.png" alt="The Square" />
                 </div>
                 <div className="footer-left-description">
-                  <p className="cmn-text">{site.description}</p>
+                  <p className="cmn-text">
+                    <strong>{site.tagline}</strong>
+                    <br />
+                    {site.description}
+                  </p>
                 </div>
                 <div className="footer-left-social">
                   <a href={site.social.facebook} className="icon-link" target="_blank" rel="noreferrer">
                     <img className="social-f" src="/img/social.png" alt="Facebook" />
                   </a>
-                  <a href={site.social.linkedin} className="icon-link" target="_blank" rel="noreferrer">
+                  <a href={site.social.instagram} className="icon-link" target="_blank" rel="noreferrer">
                     <img className="social-i" src="/img/instagram.png" alt="Instagram" />
                   </a>
                 </div>
@@ -58,22 +62,33 @@ export default function Footer({ showBg = false }) {
                       </div>
                     ))}
                   </div>
+                  <div className="footer-right-menus footer-space-menus">
+                    {footerSpaceLinks.map((link) => (
+                      <div className="footer-right-menu" key={link.label}>
+                        <Link to={link.to}>{link.label}</Link>
+                      </div>
+                    ))}
+                  </div>
                 </div>
                 <div className="footer-right-bottom">
                   <div className="footer-right-bottom-left">
                     <div className="contact-details">
-                      <div className="contact-number">
-                        <img src="/img/phone.png" alt="Phone" />
-                        <div className="contact-number-text">
-                          <a href={`tel:${site.contact.phone}`}>{site.contact.phone}</a>
+                      {site.contact.phone && (
+                        <div className="contact-number">
+                          <img src="/img/phone.png" alt="Phone" />
+                          <div className="contact-number-text">
+                            <a href={`tel:${site.contact.phone.replace(/\s/g, '')}`}>{site.contact.phone}</a>
+                          </div>
                         </div>
-                      </div>
-                      <div className="contact-emails">
-                        <img src="/img/mail.png" alt="Email" />
-                        <div className="contact-emails-text">
-                          <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a>
+                      )}
+                      {site.contact.email && (
+                        <div className="contact-emails">
+                          <img src="/img/mail.png" alt="Email" />
+                          <div className="contact-emails-text">
+                            <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a>
+                          </div>
                         </div>
-                      </div>
+                      )}
                       <div className="contact-address">
                         <img src="/img/location.png" alt="Address" />
                         <div className="contact-address-text">

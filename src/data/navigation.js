@@ -1,31 +1,32 @@
 // Navigation data: the space thumbnails shown in the hamburger dropdown,
 // the dropdown text links, and the footer link columns.
+import { spaces } from './spaces'
 
 // Thumbnails on the left of the dropdown menu (link straight to each space).
-export const dropdownSpaces = [
-  { to: '/mays-table', img: '/img/mays.jpg', alt: "May's Table" },
-  { to: '/suisse-del', img: '/img/deli.jpg', alt: 'Suisse Deli' },
-  { to: '/sono', img: '/img/sono.jpg', alt: 'Sono' },
-  { to: '/event-space', img: '/img/space.jpg', alt: 'Event Space' },
-  { to: '/nidahas', img: '/img/nidahas.jpg', alt: 'Nidahasa' },
-]
+export const dropdownSpaces = spaces.map((s) => ({ to: `/${s.slug}`, img: s.thumb, alt: s.name }))
 
 // Text links at the bottom of the dropdown menu.
 export const dropdownLinks = [
+  { to: '/about', label: 'About' },
   { to: '/spaces', label: 'Spaces' },
-  { to: '/blog', label: 'Blog' },
   { to: '/events', label: 'Events' },
-  { to: '/faqs', label: "FAQ's" },
-  { to: '/#contact', label: 'Contact Us' },
+  { to: '/blog', label: 'Blog' },
+  { to: '/contact', label: 'Contact' },
 ]
 
-// Footer navigation column.
+// Footer "Quick Links" column.
 export const footerLinks = [
   { to: '/', label: 'Home' },
-  { to: '/about', label: 'About Us' },
+  { to: '/about', label: 'About' },
   { to: '/spaces', label: 'Spaces' },
-  { to: '/blog', label: 'Blog' },
   { to: '/events', label: 'Events' },
-  { to: '/faqs', label: 'Support' },
-  { to: '/#contact', label: 'Contact' },
+  { to: '/contact', label: 'Contact' },
+]
+
+// Footer "Spaces" column.
+export const footerSpaceLinks = [
+  { to: '/mays-table', label: "MAY's Table" },
+  { to: '/nidahas', label: 'Nidahas' },
+  { to: '/summer-colombo', label: 'Summer Colombo' },
+  { to: '/barista', label: 'Barista' },
 ]

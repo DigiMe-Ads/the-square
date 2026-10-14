@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { site } from '../../data/site'
 
 // Full-screen video hero. Header/description/link fade in on a stagger,
 // reproducing the original setTimeout reveal sequence.
@@ -29,17 +28,20 @@ export default function HeroBanner() {
                 <div className="main-banner-inner">
                   <div className="main-banner-details">
                     <div className={`main-banner-header ${revealed.header ? 'show' : ''}`}>
-                      <h1 className="cmn-header">WELCOME TO THE SQUARE</h1>
+                      <h1 className="cmn-header">WHERE COLOMBO COMES TOGETHER</h1>
                     </div>
                     <div
                       className={`main-banner-description ${revealed.desc ? 'show' : ''}`}
                       style={{ justifyContent: 'center' }}
                     >
-                      <p className="cmn-text">{site.tagline}</p>
+                      <p className="cmn-text">
+                        A destination for dining, discovery, connection and memorable moments in
+                        the heart of Colombo.
+                      </p>
                     </div>
                     <div className={`main-banner-link ${revealed.link ? 'show' : ''}`}>
                       <Link to="/spaces" className="cmn-link">
-                        Explore
+                        Explore The Square
                       </Link>
                     </div>
                   </div>
