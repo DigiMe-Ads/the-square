@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { dropdownSpaces, dropdownLinks } from '../../data/navigation'
+import { dropdownLinks } from '../../data/navigation'
+import { spaces } from '../../data/spaces'
+import SpaceTile from '../common/SpaceTile'
 import { site } from '../../data/site'
 import { useReservation } from '../../context/ReservationContext'
 
@@ -69,15 +71,15 @@ export default function Navbar() {
           <div className="dropdown-menu-inner">
             <div className="dropdown-menu-inner-items">
               <div className="dropdown-menu-inner-items-top">
-                {dropdownSpaces.map((space) => (
-                  <div className="dropdown-menu-inner-items-wrapper" key={space.to}>
+                {spaces.map((space) => (
+                  <div className="dropdown-menu-inner-items-wrapper" key={space.slug}>
                     <Link
-                      to={space.to}
+                      to={`/${space.slug}`}
                       className="dropdown-menu-inner-items-menu water-effect"
                       onMouseEnter={() => setQrVisible(true)}
                       onMouseLeave={() => setQrVisible(false)}
                     >
-                      <img src={space.img} alt={space.alt} />
+                      <SpaceTile space={space} />
                     </Link>
                   </div>
                 ))}

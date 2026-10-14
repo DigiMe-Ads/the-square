@@ -1,9 +1,5 @@
-// Navigation data: the space thumbnails shown in the hamburger dropdown,
-// the dropdown text links, and the footer link columns.
-import { spaces } from './spaces'
-
-// Thumbnails on the left of the dropdown menu (link straight to each space).
-export const dropdownSpaces = spaces.map((s) => ({ to: `/${s.slug}`, img: s.thumb, alt: s.name }))
+// Navigation data: the dropdown text links and the footer link columns.
+// (The dropdown's space tiles come straight from data/spaces.js.)
 
 // Text links at the bottom of the dropdown menu.
 export const dropdownLinks = [

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import Layout from '../components/layout/Layout'
 import PageBanner from '../components/common/PageBanner'
+import SpaceTile from '../components/common/SpaceTile'
 import { spaces } from '../data/spaces'
 
 export default function Spaces() {
@@ -25,7 +26,7 @@ export default function Spaces() {
           <div className="image-row">
             {spaces.map((space) => (
               <Link to={`/${space.slug}`} key={space.slug}>
-                <img src={space.thumb} alt={space.name} />
+                <SpaceTile space={space} />
               </Link>
             ))}
           </div>

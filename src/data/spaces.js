@@ -1,6 +1,7 @@
 // The four spaces at The Square. Every space renders through the shared
 // SpaceDetail page; optional fields (email, menuUrl, gallery…) are simply
-// skipped when missing.
+// skipped when missing. `logo` is the square brand tile used in the menu and
+// on the Spaces page; spaces without one get a text tile in `tileColor`.
 import { maysGallery } from './gallery'
 
 const LOCATION_GF = 'Ground Floor, Arcade Clock Tower Building, Independence Square, Colombo 07'
@@ -9,7 +10,7 @@ export const spaces = [
   {
     slug: 'mays-table',
     name: "MAY's TABLE",
-    thumb: '/img/mays.jpg',
+    logo: '/img/mays.jpg',
     slide: '/img/slide1.png',
     image: '/img/table.png',
     number: '01',
@@ -36,7 +37,7 @@ export const spaces = [
   {
     slug: 'nidahas',
     name: 'NIDAHAS',
-    thumb: '/img/nidahas.jpg',
+    logo: '/img/nidahas.jpg',
     slide: '/img/slide2.png',
     image: '/img/slide2.png',
     number: '02',
@@ -61,7 +62,7 @@ export const spaces = [
     slug: 'summer-colombo',
     name: 'SUMMER COLOMBO',
     // Placeholder imagery until Summer Colombo brand assets are supplied.
-    thumb: '/img/slide3.png',
+    tileColor: '#1f4e5a',
     slide: '/img/slide3.png',
     image: '/img/slide3.png',
     number: '03',
@@ -85,7 +86,7 @@ export const spaces = [
     slug: 'barista',
     name: 'BARISTA',
     // Placeholder imagery until Barista brand assets are supplied.
-    thumb: '/img/slide4.png',
+    tileColor: '#3b2a20',
     slide: '/img/slide4.png',
     image: '/img/slide4.png',
     number: '04',
