@@ -1,0 +1,87 @@
+/* Type scale. Colours come from the section tone (--fg / --fg-muted / --accent). */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--accent, var(--gold-400));
+}
+
+.eyebrow::before {
+  content: '';
+  width: 36px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.8;
+}
+
+.eyebrow--center::after {
+  content: '';
+  width: 36px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.8;
+}
+
+.display {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: clamp(2.4rem, 5.6vw, 4.6rem);
+  line-height: 1.04;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--fg, var(--text-on-dark));
+}
+
+.title {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  color: var(--fg, var(--text-on-dark));
+}
+
+.title strong {
+  font-weight: 600;
+}
+
+.subtitle {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
+  line-height: 1.4;
+  color: var(--accent, var(--gold-400));
+}
+
+.lead {
+  font-size: clamp(1.02rem, 1.3vw, 1.15rem);
+  line-height: 1.8;
+  color: var(--fg-muted, var(--muted-on-dark));
+}
+
+.body-text {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--fg-muted, var(--muted-on-dark));
+}
+
+.body-text + .body-text {
+  margin-top: 1.1em;
+}
+
+.card-title {
+  font-weight: 500;
+  font-size: 1.35rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--fg, var(--text-on-dark));
+}
+
+.text-center {
+  text-align: center;
+}

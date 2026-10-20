@@ -5,7 +5,6 @@ import About from './pages/About'
 import Blog from './pages/Blog'
 import BlogPost from './pages/BlogPost'
 import Events from './pages/Events'
-import Faqs from './pages/Faqs'
 import Contact from './pages/Contact'
 import SpaceDetail from './pages/SpaceDetail'
 import { spaces } from './data/spaces'
@@ -19,7 +18,6 @@ export default function App() {
       <Route path="/blog" element={<Blog />} />
       <Route path="/blog/:slug" element={<BlogPost />} />
       <Route path="/events" element={<Events />} />
-      <Route path="/faqs" element={<Faqs />} />
       <Route path="/contact" element={<Contact />} />
 
       {/* One detail page per space */}

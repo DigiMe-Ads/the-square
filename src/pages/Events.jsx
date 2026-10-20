@@ -1,77 +1,49 @@
 import Layout from '../components/layout/Layout'
-import PageBanner from '../components/common/PageBanner'
-import TextSection from '../components/common/TextSection'
-import ContactSection from '../components/common/ContactSection'
-import { occasions } from '../data/events'
-import { useReservation } from '../context/ReservationContext'
+import PageHero from '../components/layout/PageHero'
+import SectionHeading from '../components/ui/SectionHeading'
+import CtaRow from '../components/ui/CtaRow'
+import CtaBanner from '../components/ui/CtaBanner'
+import OccasionGrid from '../components/events/OccasionGrid'
+import ContactSection from '../components/contact/ContactSection'
 
 export default function Events() {
-  const { open: openReservation } = useReservation()
-
   return (
-    <Layout footerBg>
-      <PageBanner
-        title="EVENTS"
+    <Layout>
+      <PageHero
+        size="lg"
+        image="/img/spacse-banner.png"
+        title="Make your next occasion memorable."
+        subtitle="Your event. Your people. Your space."
+        text="The Square offers a distinctive setting for gatherings, celebrations, meetings and special occasions in the heart of Colombo."
         crumbs={[
           { label: 'Home', to: '/' },
           { label: 'Events', to: '/events' },
         ]}
-      />
+      >
+        <CtaRow ctas={[{ label: 'Send An Enquiry', reserve: true, icon: 'envelope' }]} />
+      </PageHero>
 
-      <TextSection
-        image="/img/spacse-banner.png"
-        imageAlt="Dining room at The Square"
-        header="Make Your Next Occasion Memorable"
-        sub="YOUR EVENT. YOUR PEOPLE. YOUR SPACE."
-        paragraphs={[
-          'The Square offers a distinctive setting for gatherings, celebrations, meetings and special occasions in the heart of Colombo.',
-        ]}
-      />
-
-      <div className="event-wrapper">
-        <div className="event-container">
-          <div className="event-inner">
-            <div className="event-container-bottom">
-              <div className="event-bottom-container">
-                {occasions.map((occasion) => (
-                  <div className="event-bottom-row" key={occasion.id}>
-                    <div className="event-bottom-column">
-                      <div
-                        className="event-bottom-image"
-                        style={{ backgroundImage: `url('${occasion.image}')` }}
-                      ></div>
-                    </div>
-                    <div className="event-bottom-column">
-                      <div className="event-bottom-content">
-                        <div className="event-bottom-title">{occasion.title}</div>
-                        <div className="event-bottom-description cmn-text">
-                          {occasion.description}
-                        </div>
-                        <button className="event-bottom-button" onClick={openReservation}>
-                          Enquire
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+      <section className="section tone-paper">
+        <div className="container">
+          <SectionHeading
+            eyebrow="Occasions"
+            title="A setting for every moment."
+            text="From birthdays and private dinners to corporate gatherings, every occasion finds its place at The Square."
+            className="section-heading--spaced"
+          />
+          <OccasionGrid />
         </div>
-      </div>
+      </section>
 
-      <TextSection
-        tone="gold"
-        image="/img/blog3.png"
-        imageAlt="Table set for a private dinner"
-        header="Let's Create Something Memorable"
-        paragraphs={[
-          'Tell us about your event and our team will help you find the right space and experience.',
-        ]}
-        ctas={[{ label: 'Send An Enquiry', reserve: true }]}
+      <CtaBanner
+        image="/img/banner.png"
+        eyebrow="Plan With Us"
+        title="Let's create something memorable."
+        text="Tell us about your event and our team will help you find the right space and experience."
+        ctas={[{ label: 'Send An Enquiry', reserve: true, icon: 'envelope' }]}
       />
 
-      <ContactSection />
+      <ContactSection tone="paper" />
     </Layout>
   )
 }

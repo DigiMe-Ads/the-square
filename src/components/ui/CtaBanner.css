@@ -1,0 +1,45 @@
+.cta-banner {
+  --fg: var(--text-on-dark);
+  --fg-muted: #e0dbc8;
+  --accent: var(--gold-300);
+  --bg: var(--ink-950);
+  position: relative;
+  padding-block: clamp(96px, 14vw, 180px);
+  overflow: hidden;
+  color: var(--fg);
+  background: var(--ink-950);
+}
+
+.cta-banner__media {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.cta-banner__shade {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(70% 70% at 50% 50%, rgba(9, 11, 3, 0.6), rgba(9, 11, 3, 0.85)),
+    rgba(9, 11, 3, 0.2);
+}
+
+.cta-banner__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cta-banner__ctas {
+  justify-content: center;
+}
+
+/* iOS ignores fixed backgrounds; fall back to a normal cover image. */
+@media (hover: none), (max-width: 900px) {
+  .cta-banner__media {
+    background-attachment: scroll;
+  }
+}

@@ -1,49 +1,61 @@
-import CtaLinks from '../common/CtaLinks'
+import Reveal from '../ui/Reveal'
+import CtaRow from '../ui/CtaRow'
+import SpaceTile from '../ui/SpaceTile'
+import './SpaceIntro.css'
 
-// Two-column intro used on space detail pages: story copy + image, with the
-// space's CTAs (menu, reservation, contact). MAY's Table also shows its menu QR.
+// Story block on a space page: brand tile + copy on the left, and either the
+// space's intro photo or a highlights panel on the right (so spaces with only
+// one photo never repeat it).
 export default function SpaceIntro({ space }) {
   const ctas = [
-    space.menuUrl && { label: 'View Menu', href: space.menuUrl },
-    space.reservable && { label: 'Reserve A Table', reserve: true },
-    space.contactCta && { label: space.contactCta, href: '#contact' },
+    space.menuUrl && { label: 'View Menu', href: space.menuUrl, icon: 'book-open' },
+    space.reservable && { label: 'Reserve A Table', reserve: true, icon: 'calendar-check' },
+    space.contactCta && { label: space.contactCta, href: '#visit', icon: 'phone' },
   ].filter(Boolean)
 
   return (
-    <div className="table_wrapper">
-      <div className="table_container">
-        <div className="table_inner">
-          <div className="table_banner_left">
-            <div className="table-banner-details">
-              <div className="table-banner-header">
-                <h1 className="cmn-header">{space.name}</h1>
-              </div>
-              <div className="table-banner-sub">
-                <h2 className="cmn-sub-title">{space.heading}</h2>
-              </div>
-              <div className="cc-description">
-                {space.body.map((p, i) => (
-                  <p key={i}>{p}</p>
-                ))}
-              </div>
-              <div className="table-link">
-                <CtaLinks ctas={ctas} />
-                {space.menuUrl && (
-                  <div className="qr-link">
-                    <span>Scan and download menu here</span>
-                    <img src="/img/qr.png" alt="Menu QR code" />
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-          <div className="table_banner_right">
-            <div className="table-bg">
-              <img src={space.image} alt={space.name} />
-            </div>
-          </div>
+    <section className="section tone-paper space-intro">
+      <div className="container space-intro__grid">
+        <div className="space-intro__copy">
+          <Reveal className="space-intro__brand">
+            <SpaceTile space={space} />
+            <span className="eyebrow">{space.kind}</span>
+          </Reveal>
+          <Reveal delay={80}>
+            <h2 className="title">{space.heading}</h2>
+          </Reveal>
+          <Reveal delay={160}>
+            {space.body.map((p, i) => (
+              <p key={i} className={i === 0 ? 'lead' : 'body-text'}>
+                {p}
+              </p>
+            ))}
+            {space.closing && <p className="subtitle space-intro__closing">{space.closing}</p>}
+          </Reveal>
+          <Reveal delay={240}>
+            <CtaRow ctas={ctas} />
+          </Reveal>
         </div>
+
+        {space.image ? (
+          <Reveal variant="zoom" className="space-intro__media">
+            <img src={space.image} alt={`Inside ${space.label}`} loading="lazy" />
+          </Reveal>
+        ) : (
+          <Reveal variant="right" className="space-intro__panel tone-dark">
+            <span className="eyebrow">At a glance</span>
+            <p className="space-intro__tagline">{space.tagline}</p>
+            <ul>
+              {(space.highlights || []).map((h) => (
+                <li key={h}>
+                  <i className="fa-solid fa-check" aria-hidden="true" /> {h}
+                </li>
+              ))}
+            </ul>
+            <p className="body-text">{space.summary}</p>
+          </Reveal>
+        )}
       </div>
-    </div>
+    </section>
   )
 }

@@ -8,7 +8,8 @@ export const blogPosts = [
       "MAYs Urban Thai Dine: From Pattaya Streets to Colombo's Heart - A Global Culinary Sensation Arrives in Sri Lanka!",
     excerpt:
       'In the vibrant world of international cuisine, few stories are as inspiring as that of MAYs Urban Thai Dine.',
-    image: '/img/gallery_a.png',
+    image: '/img/gallery_b.png',
+    category: 'Food & Flavour',
     body: [
       "In the vibrant world of international cuisine, few stories are as inspiring as that of MAYs Urban Thai Dine. Born from humble beginnings on the streets of Pattaya, Thailand, this remarkable franchise has blossomed into a global culinary phenomenon, bringing the authentic flavors of urban Thai cuisine to food lovers across continents.",
       "The heart and soul of MAYs is its founder, Ms. May. Hailing from a farmer family in northeastern Thailand, May's journey is a testament to the power of determination and passion. Starting as a clothes seller in Bangkok at 19, she found her true calling in hospitality. After a decade of climbing the corporate ladder, May yearned to create something uniquely her own – a dining experience that matched global standards in quality but was infused with love and personality.",
@@ -24,7 +25,8 @@ export const blogPosts = [
       'The Essence of Thailand: Exploring the Rich Tapestry of Thai Cuisine with MAYs Urban Thai Dine.',
     excerpt:
       'Thai cuisine, with its vibrant flavors and aromatic herbs, has captured the hearts and palates of food lovers worldwide.',
-    image: '/img/gallery_b.png',
+    image: '/img/gallery_e.png',
+    category: 'Food & Flavour',
     body: [
       "Thai cuisine, with its vibrant flavors and aromatic herbs, has captured the hearts and palates of food lovers worldwide. As MAYs Urban Thai Dine brings its culinary expertise to new shores, it's an opportune moment to explore the rich tapestry of Thai cuisine and its potential resonance with Sri Lankan taste buds.",
       "At its core, Thai cuisine is a harmonious balance of five fundamental flavors: sweet, sour, salty, bitter, and spicy. This complex interplay of tastes is achieved through the skillful use of ingredients like palm sugar, tamarind, fish sauce, bitter herbs, and fiery chilies. It's a culinary philosophy that finds surprising parallels in Sri Lankan cuisine, where a similar emphasis on balanced, bold flavors prevails.",

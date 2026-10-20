@@ -1,0 +1,61 @@
+/* Portrait variant of PageHero: dark backdrop with a gold glow, copy on the
+ * left and the photo in a framed panel on the right at its native sharpness. */
+.page-hero--portrait {
+  align-items: center;
+  background:
+    radial-gradient(900px 520px at 78% 40%, rgba(201, 165, 74, 0.2), transparent 65%),
+    radial-gradient(700px 500px at 0% 100%, rgba(45, 52, 25, 0.8), transparent 70%),
+    var(--ink-950);
+}
+
+.page-hero--portrait .page-hero__shade {
+  display: none;
+}
+
+.page-hero--portrait .page-hero__content {
+  padding-right: calc(min(38vw, 440px) + var(--gutter) * 2);
+}
+
+.page-hero__portrait {
+  position: absolute;
+  inset: calc(var(--nav-h) + 48px) 0 48px;
+  display: flex;
+  justify-content: flex-end;
+  pointer-events: none;
+}
+
+.page-hero__portrait img {
+  width: min(38vw, 440px);
+  height: 100%;
+  max-height: 640px;
+  align-self: center;
+  object-fit: cover;
+  border-radius: 220px 220px var(--radius-lg) var(--radius-lg);
+  border: 1px solid rgba(230, 207, 143, 0.35);
+  box-shadow: var(--shadow-lg), 0 0 0 10px rgba(201, 165, 74, 0.06);
+  animation: fade-up 1.2s var(--ease) 0.2s both;
+}
+
+@media (max-width: 860px) {
+  .page-hero--portrait {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 36px;
+  }
+
+  .page-hero--portrait .page-hero__content {
+    padding-right: var(--gutter);
+  }
+
+  .page-hero__portrait {
+    position: relative;
+    inset: auto;
+    order: 2;
+    justify-content: center;
+  }
+
+  .page-hero__portrait img {
+    width: min(100%, 420px);
+    height: 460px;
+  }
+}

@@ -1,7 +1,11 @@
 // The four spaces at The Square. Every space renders through the shared
-// SpaceDetail page; optional fields (email, menuUrl, gallery…) are simply
-// skipped when missing. `logo` is the square brand tile used in the menu and
-// on the Spaces page; spaces without one get a text tile in `tileColor`.
+// SpaceDetail page; optional fields (email, menuUrl, menuQr, image, gallery…) are
+// skipped when missing. Image roles never overlap on a page:
+//   hero  → full-width banner (wide, sharp photos only)
+//   heroPortrait → framed hero panel for spaces with only tall photos
+//   slide → card on Home / Spaces / "other spaces"
+//   image → detail intro photo      gallery → MAY's Table only
+// Spaces without a logo file get a typographic tile (`wordmark`, `tileColor`).
 import { maysGallery } from './gallery'
 
 const LOCATION_GF = 'Ground Floor, Arcade Clock Tower Building, Independence Square, Colombo 07'
@@ -10,16 +14,17 @@ export const spaces = [
   {
     slug: 'mays-table',
     name: "MAY's TABLE",
+    label: "MAY's Table",
     logo: '/img/mays.jpg',
+    hero: '/img/spacse-banner.png',
     slide: '/img/slide1.png',
     image: '/img/table.png',
     number: '01',
-    // Home "Explore The Square" card
+    kind: 'Thai Restaurant',
     tagline: "Authentic Thai. Distinctively MAY's.",
     summary:
       'Experience the vibrant flavours of Thailand through authentic dishes, traditional techniques and carefully selected ingredients.',
     cta: "Explore MAY's Table",
-    // Detail page
     heading: 'AUTHENTIC THAI. AT THE HEART OF COLOMBO.',
     body: [
       "At MAY's Table, Thai cuisine is celebrated in its most authentic form.",
@@ -30,17 +35,18 @@ export const spaces = [
     hours: ['Monday – Sunday', '11:30 AM – 11:00 PM'],
     phone: '+94 77 233 0707',
     email: 'mays@colomboseven.com',
-    menuUrl: 'https://www.mayspattaya.com/mays-table',
     reservable: true,
     gallery: maysGallery,
   },
   {
     slug: 'nidahas',
     name: 'NIDAHAS',
+    label: 'Nidahas',
     logo: '/img/nidahas.jpg',
-    slide: '/img/slide2.png',
-    image: '/img/slide2.png',
+    heroPortrait: '/img/nidahas-bar-hd.jpg',
+    slide: '/img/nidahas-bar-hd.jpg',
     number: '02',
+    kind: 'Bar & Social',
     tagline: 'A space rooted in Sri Lankan spirit.',
     summary: 'Discover a new expression of local culture, flavour and contemporary hospitality.',
     note: 'Opening details to be confirmed.',
@@ -50,10 +56,11 @@ export const spaces = [
       'NIDAHAS is a distinctive bar and social destination at The Square, created for good drinks, great conversations and memorable evenings.',
       'With its relaxed atmosphere and vibrant social character, NIDAHAS offers a place to unwind, meet friends and enjoy the night at your own pace.',
       "Whether you're dropping in for an after-work drink, catching up with friends or settling in for an evening out, NIDAHAS brings a different energy to The Square.",
-      'Come for the drinks. Stay for the atmosphere. Make it a night to remember.',
     ],
+    highlights: ['Good drinks', 'Great conversations', 'After-work catch-ups', 'Memorable evenings'],
+    closing: 'Come for the drinks. Stay for the atmosphere. Make it a night to remember.',
     // Hours and email are pending client confirmation.
-    hours: ['Opening details to be confirmed.'],
+    hours: ['Opening details to be confirmed'],
     phone: '+94 76 671 2348',
     location: LOCATION_GF,
     contactCta: 'Contact Nidahas',
@@ -61,11 +68,13 @@ export const spaces = [
   {
     slug: 'summer-colombo',
     name: 'SUMMER COLOMBO',
-    // Placeholder imagery until Summer Colombo brand assets are supplied.
-    tileColor: '#1f4e5a',
-    slide: '/img/slide3.png',
-    image: '/img/slide3.png',
+    label: 'Summer Colombo',
+    wordmark: ['SUMMER', 'Colombo'],
+    tileColor: 'linear-gradient(140deg, #2a6170 0%, #173d47 100%)',
+    heroPortrait: '/img/summer-hd.jpg',
+    slide: '/img/summer-hd.jpg',
     number: '03',
+    kind: 'All-Day Brasserie',
     tagline: 'A Contemporary Dining Experience',
     summary:
       'A vibrant destination for good food, relaxed moments and memorable gatherings in the heart of Colombo.',
@@ -77,6 +86,7 @@ export const spaces = [
       'From breakfast and leisurely brunches to business lunches, coffee catch-ups and relaxed dinners, Summer Colombo is designed to make every visit feel effortless.',
       'With stylish surroundings, thoughtfully prepared food and a warm, welcoming atmosphere, it is a place to meet, unwind and enjoy the moment — whatever the time of day.',
     ],
+    highlights: ['All-day dining', 'Brunch favourites', 'Artisanal coffee', 'Handcrafted desserts'],
     hours: ['Monday – Sunday', '8:00 AM – 10:00 PM'],
     phone: '+94 77 134 0608',
     location: LOCATION_GF,
@@ -85,11 +95,13 @@ export const spaces = [
   {
     slug: 'barista',
     name: 'BARISTA',
-    // Placeholder imagery until Barista brand assets are supplied.
-    tileColor: '#3b2a20',
-    slide: '/img/slide4.png',
-    image: '/img/slide4.png',
+    label: 'Barista',
+    wordmark: ['BARISTA', 'Coffee & Café'],
+    tileColor: 'linear-gradient(140deg, #5a3f2c 0%, #2e1f15 100%)',
+    heroPortrait: '/img/barista-hd.jpg',
+    slide: '/img/barista-hd.jpg',
     number: '04',
+    kind: 'Coffee & Café',
     tagline: 'Coffee & Café',
     summary:
       'Your everyday coffee destination at Independence Square — from expertly brewed coffee to relaxed catch-ups and easy moments.',
@@ -100,6 +112,7 @@ export const spaces = [
       "Whether you're starting your morning, taking a break from the day or meeting someone over coffee, Barista offers a welcoming space to enjoy your favourite brews and everyday café moments.",
       'Set within the heritage surroundings of Arcade Independence Square, this Barista location combines the character of its historic setting with the familiar modern café experience the brand is known for.',
     ],
+    highlights: ['Signature brews', 'Morning coffee', 'Catch-ups', 'Everyday café moments'],
     hours: ['Monday – Sunday', '7:00 AM – 10:00 PM'],
     phone: '+94 11 351 8966',
     location: 'No. CT/GF/3A, Arcade – Independence Square, Colombo 07',

@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useCallback, useContext, useMemo, useState } from 'react'
 
 // Holds the open/closed state of the global reservation modal so any component
 // (navbar RESERVE button, etc.) can trigger it without prop-drilling.
@@ -6,12 +6,9 @@ const ReservationContext = createContext(null)
 
 export function ReservationProvider({ children }) {
   const [isOpen, setIsOpen] = useState(false)
-
-  const value = {
-    isOpen,
-    open: () => setIsOpen(true),
-    close: () => setIsOpen(false),
-  }
+  const open = useCallback(() => setIsOpen(true), [])
+  const close = useCallback(() => setIsOpen(false), [])
+  const value = useMemo(() => ({ isOpen, open, close }), [isOpen, open, close])
 
   return <ReservationContext.Provider value={value}>{children}</ReservationContext.Provider>
 }

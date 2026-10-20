@@ -1,0 +1,45 @@
+.intro__grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: center;
+  gap: clamp(40px, 6vw, 96px);
+}
+
+.intro__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.intro__copy .text-link {
+  margin-top: 10px;
+}
+
+.intro__art {
+  position: relative;
+}
+
+.intro__sketch {
+  width: 100%;
+  height: auto;
+  mix-blend-mode: multiply;
+}
+
+.intro__stamp {
+  position: absolute;
+  right: 4%;
+  bottom: -6%;
+  width: clamp(120px, 26%, 200px);
+  height: auto;
+  mix-blend-mode: multiply;
+  opacity: 0.9;
+  transform: rotate(-8deg);
+  animation: float 7s ease-in-out infinite;
+}
+
+@media (max-width: 900px) {
+  .intro__grid {
+    grid-template-columns: 1fr;
+  }
+}

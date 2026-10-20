@@ -13,9 +13,9 @@ into a single-page React app broken into reusable, scalable components.
 | Build tool   | [Vite](https://vitejs.dev) 8            |
 | UI           | React 19 (JavaScript / JSX)             |
 | Routing      | react-router-dom 7 (`BrowserRouter`)    |
-| Sliders      | [Swiper](https://swiperjs.com)          |
+| Animation    | CSS + IntersectionObserver (`<Reveal>`) |
 | Lightbox     | yet-another-react-lightbox              |
-| Styling      | The original `style.css`, kept as-is    |
+| Styling      | Design tokens + per-component CSS       |
 
 ---
 

@@ -1,0 +1,130 @@
+/* Buttons and text links. */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 26px;
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    color 0.4s var(--ease),
+    background-color 0.4s var(--ease),
+    border-color 0.4s var(--ease),
+    transform 0.4s var(--ease),
+    box-shadow 0.4s var(--ease);
+}
+
+.btn i {
+  font-size: 12px;
+  transition: transform 0.4s var(--ease);
+}
+
+.btn:hover i {
+  transform: translateX(4px);
+}
+
+.btn:active {
+  transform: translateY(1px) scale(0.99);
+}
+
+/* Gold fill with a light sheen that sweeps across on hover. */
+.btn--gold {
+  background: var(--gold-500);
+  color: var(--ink-950);
+  box-shadow: 0 10px 30px -12px rgba(201, 165, 74, 0.7);
+}
+
+.btn--gold::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.45) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform 0.9s var(--ease);
+}
+
+.btn--gold:hover {
+  background: var(--gold-400);
+  box-shadow: 0 16px 36px -12px rgba(201, 165, 74, 0.85);
+}
+
+.btn--gold:hover::after {
+  transform: translateX(120%);
+}
+
+/* Outline that adapts to the section tone. */
+.btn--outline {
+  border: 1px solid var(--fg, var(--text-on-dark));
+  color: var(--fg, var(--text-on-dark));
+}
+
+.btn--outline:hover {
+  background: var(--fg, var(--text-on-dark));
+  color: var(--bg, var(--ink-950));
+}
+
+.tone-gold .btn--gold {
+  background: var(--ink-950);
+  color: var(--gold-300);
+  box-shadow: 0 12px 30px -14px rgba(9, 11, 3, 0.7);
+}
+
+.tone-gold .btn--gold:hover {
+  background: var(--ink-800);
+}
+
+.tone-gold .btn--outline:hover {
+  color: var(--gold-400);
+}
+
+.btn--sm {
+  min-height: 40px;
+  padding: 0 18px;
+  font-size: 12px;
+}
+
+/* Underlined text link with an animated rule. */
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent, var(--gold-400));
+  background: linear-gradient(currentColor, currentColor) left bottom / 30% 1px no-repeat;
+  transition: background-size 0.5s var(--ease);
+}
+
+.text-link i {
+  font-size: 11px;
+  transition: transform 0.4s var(--ease);
+}
+
+.text-link:hover {
+  background-size: 100% 1px;
+}
+
+.text-link:hover i {
+  transform: translateX(4px);
+}
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px 18px;
+  margin-top: 36px;
+}

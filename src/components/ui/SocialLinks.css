@@ -1,0 +1,29 @@
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-links a {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(243, 239, 226, 0.22);
+  color: var(--text-on-dark);
+  font-size: 15px;
+  line-height: 1;
+  transition:
+    background-color 0.35s var(--ease),
+    border-color 0.35s var(--ease),
+    color 0.35s var(--ease),
+    transform 0.35s var(--ease);
+}
+
+.social-links a:hover {
+  background: var(--gold-500);
+  border-color: var(--gold-500);
+  color: var(--ink-950);
+  transform: translateY(-2px);
+}

@@ -1,0 +1,24 @@
+.section-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 680px;
+}
+
+.section-heading--center {
+  align-items: center;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.section-heading--spaced {
+  margin-bottom: clamp(40px, 5vw, 64px);
+}
+
+.section-heading .subtitle {
+  margin-top: -4px;
+}
+
+.section-heading .lead + .lead {
+  margin-top: -4px;
+}

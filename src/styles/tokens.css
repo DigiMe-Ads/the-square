@@ -1,0 +1,107 @@
+/* Design tokens: the olive + gold palette of the original site, tuned so every
+ * text colour clears WCAG AA against the background it sits on. */
+:root {
+  /* Olive darks (backgrounds) */
+  --ink-950: #090b03;
+  --ink-900: #10140a;
+  --ink-800: #171c0c;
+  --ink-700: #212713;
+  --ink-600: #2d3419;
+
+  /* Creams (light backgrounds) */
+  --cream-50: #fbf8f1;
+  --cream-100: #f4eee0;
+  --cream-200: #e8dfc8;
+
+  /* Gold accents */
+  --gold-300: #e6cf8f;
+  --gold-400: #d9bc6c;
+  --gold-500: #c9a54a;
+  --gold-600: #a8862f;
+  --gold-700: #7a5f1c;
+
+  /* Text — on dark: 15:1 / 9:1. On light: 14:1 / 7:1. */
+  --text-on-dark: #f3efe2;
+  --muted-on-dark: #c4bea7;
+  --text-on-light: #1b1f0e;
+  --muted-on-light: #4a4d39;
+
+  --font-sans: 'Raleway', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-serif: 'Lora', Georgia, serif;
+
+  --radius-sm: 10px;
+  --radius: 18px;
+  --radius-lg: 28px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 6px 18px -10px rgba(0, 0, 0, 0.35);
+  --shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 40px 80px -30px rgba(0, 0, 0, 0.6);
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur: 0.6s;
+
+  --container: 1240px;
+  --gutter: clamp(16px, 4vw, 40px);
+  --section-y: clamp(72px, 9vw, 136px);
+  --nav-h: 72px;
+}
+
+/* Section tones set the foreground colours their children use, so a heading
+ * or paragraph is always readable whatever section it lands in. */
+.tone-dark {
+  --bg: var(--ink-900);
+  --fg: var(--text-on-dark);
+  --fg-muted: var(--muted-on-dark);
+  --accent: var(--gold-400);
+  --line: rgba(243, 239, 226, 0.12);
+  --card: rgba(243, 239, 226, 0.04);
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.tone-deep {
+  --bg: var(--ink-950);
+  --fg: var(--text-on-dark);
+  --fg-muted: var(--muted-on-dark);
+  --accent: var(--gold-400);
+  --line: rgba(243, 239, 226, 0.1);
+  --card: rgba(243, 239, 226, 0.04);
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.tone-light {
+  --bg: var(--cream-100);
+  --fg: var(--text-on-light);
+  --fg-muted: var(--muted-on-light);
+  --accent: var(--gold-700);
+  --line: rgba(27, 31, 14, 0.12);
+  --card: #fffdf7;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.tone-paper {
+  --bg: var(--cream-50);
+  --fg: var(--text-on-light);
+  --fg-muted: var(--muted-on-light);
+  --accent: var(--gold-700);
+  --line: rgba(27, 31, 14, 0.1);
+  --card: #ffffff;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+/* The original site's signature gold band — dark ink text instead of white
+ * so it reads cleanly (white on gold was ~2.4:1). */
+.tone-gold {
+  --bg: linear-gradient(135deg, #d4b45e 0%, #c49f43 55%, #b48f35 100%);
+  --fg: var(--ink-950);
+  --fg-muted: #2f2a14;
+  --accent: var(--ink-900);
+  --line: rgba(9, 11, 3, 0.18);
+  --card: rgba(255, 255, 255, 0.16);
+  background: var(--bg);
+  color: var(--fg);
+}
