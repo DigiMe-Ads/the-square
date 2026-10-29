@@ -11,6 +11,7 @@ export default function SpaceIntro({ space }) {
     space.menuUrl && { label: 'View Menu', href: space.menuUrl, icon: 'book-open' },
     space.reservable && { label: 'Reserve A Table', reserve: true, icon: 'calendar-check' },
     space.contactCta && { label: space.contactCta, href: '#visit', icon: 'phone' },
+    space.instagram && { label: 'Instagram', href: space.instagram, icon: 'fa-brands fa-instagram' },
   ].filter(Boolean)
 
   return (

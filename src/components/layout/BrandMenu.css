@@ -40,8 +40,8 @@
 
 .brand-menu__grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(14px, 2vw, 28px);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(14px, 1.8vw, 24px);
 }
 
 .brand-menu__grid li {
@@ -110,6 +110,8 @@
   font-size: 13px;
   color: var(--muted-on-dark);
 }
+
+.brand-card__ig { margin-left: 8px; color: var(--gold-300); }
 
 .brand-menu__foot {
   display: flex;
@@ -185,7 +187,7 @@
 
 @media (max-width: 860px) {
   .brand-menu__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .brand-menu__visit {

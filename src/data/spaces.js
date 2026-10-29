@@ -6,6 +6,7 @@
 //   slide → card on Home / Spaces / "other spaces"
 //   image → detail intro photo      gallery → MAY's Table only
 // Spaces without a logo file get a typographic tile (`wordmark`, `tileColor`).
+// `instagram` is the brand's own account; menu items link there (see brandLink).
 import { maysGallery } from './gallery'
 
 const LOCATION_GF = 'Ground Floor, Arcade Clock Tower Building, Independence Square, Colombo 07'
@@ -35,6 +36,7 @@ export const spaces = [
     hours: ['Monday – Sunday', '11:30 AM – 11:00 PM'],
     phone: '+94 77 233 0707',
     email: 'mays@colomboseven.com',
+    instagram: 'https://www.instagram.com/mays.table.cmb/',
     reservable: true,
     gallery: maysGallery,
   },
@@ -42,7 +44,7 @@ export const spaces = [
     slug: 'nidahas',
     name: 'NIDAHAS',
     label: 'Nidahas',
-    logo: '/img/nidahas.jpg',
+    logo: '/img/nidahas-brown.jpg',
     heroPortrait: '/img/nidahas-bar-hd.jpg',
     slide: '/img/nidahas-bar-hd.jpg',
     number: '02',
@@ -90,6 +92,7 @@ export const spaces = [
     hours: ['Monday – Sunday', '8:00 AM – 10:00 PM'],
     phone: '+94 77 134 0608',
     location: LOCATION_GF,
+    instagram: 'https://www.instagram.com/summer.colombo/',
     reservable: true,
   },
   {
@@ -97,7 +100,7 @@ export const spaces = [
     name: 'BARISTA',
     label: 'Barista',
     wordmark: ['BARISTA', 'Coffee & Café'],
-    tileColor: 'linear-gradient(140deg, #5a3f2c 0%, #2e1f15 100%)',
+    tileColor: 'linear-gradient(140deg, #f47d24 0%, #d9620f 100%)',
     heroPortrait: '/img/barista-hd.jpg',
     slide: '/img/barista-hd.jpg',
     number: '04',
@@ -117,8 +120,29 @@ export const spaces = [
     phone: '+94 11 351 8966',
     location: 'No. CT/GF/3A, Arcade – Independence Square, Colombo 07',
     contactCta: 'Visit Barista',
+    instagram: 'https://www.instagram.com/baristasl/',
   },
 ]
+
+// Every brand in the menu: the four spaces plus brands that only have an
+// Instagram presence for now (no detail page).
+export const brands = [
+  ...spaces,
+  {
+    slug: 'salmon-n-maki',
+    name: 'SALMON N MAKI',
+    label: 'Salmon n Maki',
+    logo: '/img/salmon-n-maki.jpg',
+    number: '05',
+    kind: 'Sushi & Japanese',
+    instagram: 'https://www.instagram.com/salmon_n_maki/',
+  },
+]
+
+// Menu items open the brand's Instagram — except MAY's Table, which keeps its
+// own page. Brands without Instagram fall back to their page.
+export const brandLink = (brand) =>
+  brand.slug !== 'mays-table' && brand.instagram ? { href: brand.instagram } : { to: `/${brand.slug}` }
 
 export const getSpace = (slug) => spaces.find((s) => s.slug === slug)
 

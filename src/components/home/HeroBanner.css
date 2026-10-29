@@ -43,6 +43,14 @@
   animation: fade-up 1.1s var(--ease) both;
 }
 
+.hero__logo {
+  width: clamp(150px, 15vw, 220px);
+  height: auto;
+  margin-bottom: 8px;
+  filter: drop-shadow(0 4px 24px rgba(0, 0, 0, 0.4));
+  animation-delay: 0.15s;
+}
+
 .hero__eyebrow {
   animation-delay: 0.3s;
 }

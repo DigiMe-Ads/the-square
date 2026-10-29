@@ -1,10 +1,9 @@
 // Navigation data. The brand tiles in the menu overlay come from data/spaces.js.
 
-// Main links shown in the glass navbar (and in the menu overlay on mobile).
+// Main links in the glass navbar and the mobile menu. Events is linked from the footer only.
 export const navLinks = [
   { to: '/about', label: 'About' },
-  { to: '/spaces', label: 'Spaces' },
-  { to: '/events', label: 'Events' },
+  { to: '/experiences', label: 'Experiences' },
   { to: '/blog', label: 'Blog' },
   { to: '/contact', label: 'Contact' },
 ]
@@ -13,7 +12,7 @@ export const navLinks = [
 export const footerLinks = [
   { to: '/', label: 'Home' },
   { to: '/about', label: 'About' },
-  { to: '/spaces', label: 'Spaces' },
+  { to: '/experiences', label: 'Experiences' },
   { to: '/events', label: 'Events' },
   { to: '/contact', label: 'Contact' },
 ]

@@ -11,7 +11,7 @@ export default function MenuToggle({ open, onClick }) {
       aria-controls="brand-menu"
       aria-label={open ? 'Close menu' : 'Open menu'}
     >
-      <span className="menu-toggle__label">{open ? 'Close' : 'Our Spaces'}</span>
+      <span className="menu-toggle__label">{open ? 'Close' : 'Experiences'}</span>
       <span className="menu-toggle__icon" aria-hidden="true">
         <span />
         <span />

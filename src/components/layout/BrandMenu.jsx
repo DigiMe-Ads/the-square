@@ -1,15 +1,16 @@
-import { Link, NavLink } from 'react-router-dom'
-import { spaces } from '../../data/spaces'
+import { NavLink } from 'react-router-dom'
+import { brands } from '../../data/spaces'
 import { navLinks } from '../../data/navigation'
 import { site } from '../../data/site'
 import useOverlay from '../../hooks/useOverlay'
 import SpaceTile from '../ui/SpaceTile'
+import BrandLink from '../ui/BrandLink'
 import SocialLinks from '../ui/SocialLinks'
 import './BrandMenu.css'
 
-const menuSpace = spaces.find((s) => s.menuQr)
+const menuSpace = brands.find((s) => s.menuQr)
 
-// Full-screen frosted overlay opened by the hamburger: the four brand tiles,
+// Full-screen frosted overlay opened by the hamburger: the brand tiles,
 // page links (for smaller screens), the menu QR and visit details.
 export default function BrandMenu({ open, onClose }) {
   useOverlay(open, onClose)
@@ -18,23 +19,28 @@ export default function BrandMenu({ open, onClose }) {
     <div id="brand-menu" className={`brand-menu${open ? ' is-open' : ''}`} aria-hidden={!open} inert={!open}>
       <div className="brand-menu__inner container">
         <div className="brand-menu__head">
-          <span className="eyebrow">Our Spaces</span>
-          <p className="brand-menu__title">Four spaces. One destination.</p>
+          <span className="eyebrow">Our Experiences</span>
+          <p className="brand-menu__title">Five experiences. One destination.</p>
         </div>
 
         <ul className="brand-menu__grid">
-          {spaces.map((space, i) => (
+          {brands.map((space, i) => (
             <li key={space.slug} style={{ '--i': i }}>
-              <Link to={`/${space.slug}`} className="brand-card">
+              <BrandLink brand={space} className="brand-card">
                 <span className="brand-card__tile">
                   <SpaceTile space={space} />
                 </span>
                 <span className="brand-card__meta">
                   <span className="brand-card__num">{space.number}</span>
                   <span className="brand-card__name">{space.name}</span>
-                  <span className="brand-card__kind">{space.kind}</span>
+                  <span className="brand-card__kind">
+                    {space.kind}
+                    {space.slug !== 'mays-table' && space.instagram && (
+                      <i className="fa-brands fa-instagram brand-card__ig" aria-hidden="true" />
+                    )}
+                  </span>
                 </span>
-              </Link>
+              </BrandLink>
             </li>
           ))}
         </ul>

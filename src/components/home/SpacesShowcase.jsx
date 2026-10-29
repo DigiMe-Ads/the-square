@@ -17,8 +17,8 @@ export default function SpacesShowcase() {
             text="Discover a collection of spaces, each with its own character, atmosphere and story."
           />
           <Reveal delay={200}>
-            <Button to="/spaces" variant="outline">
-              Explore The Spaces
+            <Button to="/experiences" variant="outline">
+              Explore The Experiences
             </Button>
           </Reveal>
         </div>

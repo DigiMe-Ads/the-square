@@ -65,7 +65,7 @@ export default function About() {
         eyebrow="Come to The Square"
         title="Discover a place made for your moments."
         text="Whether you're here for food, coffee, drinks, conversation or celebration, there's always something to experience."
-        ctas={[{ label: 'Explore The Spaces', to: '/spaces' }]}
+        ctas={[{ label: 'Explore The Experiences', to: '/experiences' }]}
       />
 
       <ContactSection tone="paper" />

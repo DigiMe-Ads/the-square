@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
+import BrandLink from '../ui/BrandLink'
 import { footerLinks } from '../../data/navigation'
-import { spaces } from '../../data/spaces'
+import { brands } from '../../data/spaces'
 import { site } from '../../data/site'
 import SocialLinks from '../ui/SocialLinks'
 import Newsletter from './Newsletter'
@@ -35,11 +36,11 @@ export default function Footer() {
           </div>
 
           <div className="footer__col">
-            <h3>Spaces</h3>
+            <h3>Experiences</h3>
             <ul>
-              {spaces.map((space) => (
-                <li key={space.slug}>
-                  <Link to={`/${space.slug}`}>{space.label}</Link>
+              {brands.map((brand) => (
+                <li key={brand.slug}>
+                  <BrandLink brand={brand}>{brand.label}</BrandLink>
                 </li>
               ))}
             </ul>

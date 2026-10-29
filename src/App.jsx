@@ -14,7 +14,8 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<About />} />
-      <Route path="/spaces" element={<Spaces />} />
+      <Route path="/experiences" element={<Spaces />} />
+      <Route path="/spaces" element={<Navigate to="/experiences" replace />} />
       <Route path="/blog" element={<Blog />} />
       <Route path="/blog/:slug" element={<BlogPost />} />
       <Route path="/events" element={<Events />} />

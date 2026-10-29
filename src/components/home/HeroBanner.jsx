@@ -12,6 +12,7 @@ export default function HeroBanner() {
       <div className="hero__shade" aria-hidden="true" />
 
       <div className="hero__content container">
+        <img className="hero__logo" src="/img/logo.png" alt="The Square" width="232" height="90" />
         <span className="eyebrow hero__eyebrow">Independence Square · Colombo 07</span>
         <h1 className="display hero__title">
           Where Colombo <em>Comes Together</em>
@@ -24,7 +25,7 @@ export default function HeroBanner() {
           distinctive experiences, flavours and spaces under one roof.
         </p>
         <div className="cta-row hero__ctas">
-          <Button to="/spaces">Explore The Square</Button>
+          <Button to="/experiences">Explore The Square</Button>
           <Button reserve variant="outline" icon="calendar-check">
             Reserve
           </Button>

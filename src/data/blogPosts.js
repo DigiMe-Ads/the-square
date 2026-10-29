@@ -1,6 +1,8 @@
 // Blog posts. `body` is an array of paragraphs so a single BlogPost page
 // component can render any post by slug. Add a new object here to publish a post.
 
+import { templatePosts } from './templatePosts'
+
 export const blogPosts = [
   {
     slug: 'mays-urban-thai-dine-arrives-in-sri-lanka',
@@ -39,6 +41,7 @@ export const blogPosts = [
       'From the streets of Pattaya to the global stage, MAYs Urban Thai Dine has demonstrated the universal appeal of Thai cuisine. As it continues to expand, it not only brings the authentic tastes of Thailand to the world but also opens up exciting possibilities for fusion and innovation, blending local tastes with Thai culinary traditions. In this gastronomic journey, food becomes a bridge between cultures, offering a delicious means of understanding and appreciating our shared love for bold, balanced flavors.',
     ],
   },
+  ...templatePosts,
 ]
 
 export const getPost = (slug) => blogPosts.find((p) => p.slug === slug)

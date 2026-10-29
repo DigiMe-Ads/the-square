@@ -16,7 +16,7 @@ export default function Button({ to, href, reserve, onClick, variant = 'gold', s
   const content = (
     <>
       <span>{children}</span>
-      {icon && <i className={`fa-solid fa-${icon}`} aria-hidden="true" />}
+      {icon && <i className={icon.startsWith('fa-') ? icon : `fa-solid fa-${icon}`} aria-hidden="true" />}
     </>
   )
 

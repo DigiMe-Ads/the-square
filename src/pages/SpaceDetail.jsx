@@ -23,7 +23,7 @@ export default function SpaceDetail({ space }) {
         subtitle={space.tagline}
         crumbs={[
           { label: 'Home', to: '/' },
-          { label: 'Spaces', to: '/spaces' },
+          { label: 'Experiences', to: '/experiences' },
           { label: space.label, to: `/${space.slug}` },
         ]}
       >
