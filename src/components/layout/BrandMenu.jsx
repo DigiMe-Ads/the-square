@@ -35,7 +35,7 @@ export default function BrandMenu({ open, onClose }) {
                   <span className="brand-card__name">{space.name}</span>
                   <span className="brand-card__kind">
                     {space.kind}
-                    {space.slug !== 'mays-table' && space.instagram && (
+                    {space.instagram && (
                       <i className="fa-brands fa-instagram brand-card__ig" aria-hidden="true" />
                     )}
                   </span>

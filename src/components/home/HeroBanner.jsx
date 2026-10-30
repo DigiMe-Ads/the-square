@@ -1,10 +1,12 @@
-import { Link } from 'react-router-dom'
-import { spaces } from '../../data/spaces'
+import { brands } from '../../data/spaces'
 import Button from '../ui/Button'
+import BrandLink from '../ui/BrandLink'
+import SpaceTile from '../ui/SpaceTile'
 import './HeroBanner.css'
+import './HeroStrip.css'
 
 // Full-screen video hero with a staggered copy reveal and a glass strip
-// linking straight to the four spaces.
+// linking to each brand's Instagram.
 export default function HeroBanner() {
   return (
     <section className="hero">
@@ -34,13 +36,15 @@ export default function HeroBanner() {
 
       <div className="hero__strip container">
         <ul className="hero__spaces glass">
-          {spaces.map((space) => (
+          {brands.map((space) => (
             <li key={space.slug}>
-              <Link to={`/${space.slug}`}>
-                <span className="hero__num">{space.number}</span>
+              <BrandLink brand={space}>
+                <span className="hero__tile">
+                  <SpaceTile space={space} />
+                </span>
                 <span className="hero__name">{space.label}</span>
                 <span className="hero__kind">{space.kind}</span>
-              </Link>
+              </BrandLink>
             </li>
           ))}
         </ul>

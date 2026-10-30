@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom'
 import Reveal from '../ui/Reveal'
+import BrandLink from '../ui/BrandLink'
+import { isInstagramLink } from '../../data/spaces'
 import './SpaceCard.css'
 
 // Tall photo card for a space. On hover the photo zooms and the summary
@@ -7,7 +8,7 @@ import './SpaceCard.css'
 export default function SpaceCard({ space, delay = 0 }) {
   return (
     <Reveal delay={delay} className="space-card-wrap">
-      <Link to={`/${space.slug}`} className="space-card zoom-host">
+      <BrandLink brand={space} className="space-card zoom-host">
         <div className="space-card__media zoom-media">
           <img src={space.slide} alt={`${space.label} at The Square`} loading="lazy" />
         </div>
@@ -23,10 +24,10 @@ export default function SpaceCard({ space, delay = 0 }) {
             {space.note && <p className="space-card__note">{space.note}</p>}
           </div>
           <span className="space-card__cta">
-            {space.cta} <i className="fa-solid fa-arrow-right" aria-hidden="true" />
+            {space.cta} <i className={isInstagramLink(space) ? 'fa-brands fa-instagram' : 'fa-solid fa-arrow-right'} aria-hidden="true" />
           </span>
         </div>
-      </Link>
+      </BrandLink>
     </Reveal>
   )
 }

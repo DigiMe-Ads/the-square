@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom'
 import Reveal from '../ui/Reveal'
+import BrandLink from '../ui/BrandLink'
+import { brandLink, isInstagramLink } from '../../data/spaces'
 import SpaceTile from '../ui/SpaceTile'
 import Button from '../ui/Button'
 import './SpaceRow.css'
@@ -9,11 +10,11 @@ export default function SpaceRow({ space, reverse = false }) {
   return (
     <article className={`space-row${reverse ? ' space-row--reverse' : ''}`}>
       <Reveal variant={reverse ? 'right' : 'left'} className="space-row__media">
-        <Link to={`/${space.slug}`} className="zoom-host" tabIndex={-1} aria-hidden="true">
+        <BrandLink brand={space} className="zoom-host" tabIndex={-1} aria-hidden="true">
           <span className="zoom-media">
             <img src={space.slide} alt="" loading="lazy" />
           </span>
-        </Link>
+        </BrandLink>
         <span className="space-row__num">{space.number}</span>
       </Reveal>
 
@@ -35,7 +36,7 @@ export default function SpaceRow({ space, reverse = false }) {
           </p>
         </Reveal>
         <Reveal delay={260}>
-          <Button to={`/${space.slug}`} variant="link">
+          <Button {...brandLink(space)} variant="link" icon={isInstagramLink(space) ? 'fa-brands fa-instagram' : undefined}>
             {space.cta}
           </Button>
         </Reveal>

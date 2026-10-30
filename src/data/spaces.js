@@ -66,6 +66,8 @@ export const spaces = [
     phone: '+94 76 671 2348',
     location: LOCATION_GF,
     contactCta: 'Contact Nidahas',
+    // No Nidahas account yet — uses The Square's Instagram until one exists.
+    instagram: 'https://www.instagram.com/the_square_by_col_7/',
   },
   {
     slug: 'summer-colombo',
@@ -139,10 +141,12 @@ export const brands = [
   },
 ]
 
-// Menu items open the brand's Instagram — except MAY's Table, which keeps its
-// own page. Brands without Instagram fall back to their page.
+// Brand items open the brand's Instagram in a new tab. Brands without
+// Instagram fall back to their page on this site.
+export const isInstagramLink = (brand) => Boolean(brand.instagram)
+
 export const brandLink = (brand) =>
-  brand.slug !== 'mays-table' && brand.instagram ? { href: brand.instagram } : { to: `/${brand.slug}` }
+  isInstagramLink(brand) ? { href: brand.instagram } : { to: `/${brand.slug}` }
 
 export const getSpace = (slug) => spaces.find((s) => s.slug === slug)
 
